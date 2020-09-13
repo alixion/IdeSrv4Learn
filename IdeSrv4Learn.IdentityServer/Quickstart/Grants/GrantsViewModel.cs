@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace IdeSrv4Learn.Quickstart.UI
 {
     public class GrantsViewModel
     {

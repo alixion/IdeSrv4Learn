@@ -1,8 +1,9 @@
 using System;
 using IdentityServer4.Models;
+using IdeSrv4Learn.IdentityServer.Quickstart.Account;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace IdeSrv4Learn.Quickstart.UI
 {
     public static class Extensions
     {
