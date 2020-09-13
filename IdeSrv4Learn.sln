@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeSrv4Learn.Conso", "IdeSr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeSrv4Learn.WebMvc", "IdeSrv4Learn.WebMvc\IdeSrv4Learn.WebMvc.csproj", "{AB9B5F15-E250-498F-A16D-759FB90DC0CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeSrv4Learn.WebJs", "IdeSrv4Learn.WebJs\IdeSrv4Learn.WebJs.csproj", "{34CB855D-DD36-446A-98BE-00C7324FCB14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{AB9B5F15-E250-498F-A16D-759FB90DC0CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB9B5F15-E250-498F-A16D-759FB90DC0CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB9B5F15-E250-498F-A16D-759FB90DC0CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34CB855D-DD36-446A-98BE-00C7324FCB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34CB855D-DD36-446A-98BE-00C7324FCB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34CB855D-DD36-446A-98BE-00C7324FCB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34CB855D-DD36-446A-98BE-00C7324FCB14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

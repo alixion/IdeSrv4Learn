@@ -1,0 +1,11 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "Weather";
+    Layout = "_Layout";
+}
+
+<h2>Weather</h2>
+<pre>
+    @Html.Raw(ViewBag.Json)
+</pre>

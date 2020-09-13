@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Polly;
 
 namespace IdeSrv4Learn.WebMvc
 {
@@ -43,6 +41,10 @@ namespace IdeSrv4Learn.WebMvc
                     options.ResponseType = "code";
 
                     options.SaveTokens = true;
+                    options.Scope.Add("api1");
+                    options.Scope.Add("profile");
+                    options.Scope.Add("email");
+                    options.Scope.Add("offline_access");
 
                     options.Events = new OpenIdConnectEvents()
                     {
@@ -55,6 +57,29 @@ namespace IdeSrv4Learn.WebMvc
                         }
                     };
                 });
+            // adds user and client access token management
+            services.AddAccessTokenManagement()
+                .ConfigureBackchannelHttpClient()
+                .AddTransientHttpErrorPolicy(policy => policy.WaitAndRetryAsync(new[]
+                {
+                    TimeSpan.FromSeconds(1),
+                    TimeSpan.FromSeconds(2),
+                    TimeSpan.FromSeconds(3)
+                }));
+
+            // registers HTTP client that uses the managed user access token
+            services.AddUserAccessTokenClient("user_client", client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:6001");
+            });
+
+            // registers HTTP client that uses the managed client access token
+            services.AddClientAccessTokenClient("client", configureClient: client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:6001");
+            });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

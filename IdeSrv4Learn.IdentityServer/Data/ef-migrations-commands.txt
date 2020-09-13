@@ -1,0 +1,2 @@
+﻿ dotnet ef migrations script -c PersistedGrantDbContext -o data/sql/persistedgrantdb.sql --no-build
+ dotnet ef migrations script -c ConfigurationDbContext  -o data/sql/configurationdb.sql --no-build
